@@ -129,6 +129,10 @@ class ModelEvaluator:
             Matplotlib figure
         """
         plt.figure(figsize=(10, 8))
+        
+        if class_names is None:
+            class_names = [f'Class {i}' for i in range(cm.shape[0])]
+        
         sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 
                    xticklabels=class_names, yticklabels=class_names)
         plt.xlabel('Predicted')
